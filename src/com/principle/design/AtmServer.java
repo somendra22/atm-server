@@ -22,23 +22,24 @@ public class AtmServer {
 
 	public static void main(String[] args) {
 
+		ScreenDisplayService screen = new ScreenDisplayServiceImpl();
 		Scanner input = new Scanner(System.in);
-		System.out.println("Enter bank name : ");
+		screen.display("Enter bank name : ");
 		String bankName = input.nextLine();
-		System.out.println("Enter branch  name : ");
+		screen.display("Enter branch  name : ");
 		String branchName = input.nextLine();
 
 		ValidationService validator = new CardValidation();
-		ScreenDisplayService screen = new ScreenDisplayServiceImpl();
 		CardReaderService cardReader = new CardReaderServiceImpl();
 		NumericKeyPadService keypad = new NumericKeypadServiceImpl();
 		AtmOperationService atmOperationService = new AtmOperationServiceImpl();
 		Atm atm = new Atm(1, 2, 5000);
 		BankBranch branch = new BankBranch(branchName, Arrays.asList(atm));
-		Bank bank = new Bank(bankName, Arrays.asList(branch));
+		Bank bank = new Bank(bankName, branch);
 		while (true) {
-			System.out.println("1.Withdraw ");
-			System.out.println("2.Deposit ");
+			screen.display("******Welcome to "+bank.getName()+ " ATM; " +bank.getBranch()+ " branch******");
+			screen.display("1.Withdraw ");
+			screen.display("2.Deposit ");
 			String option = input.nextLine();
 
 			if (option.equals("1")) {

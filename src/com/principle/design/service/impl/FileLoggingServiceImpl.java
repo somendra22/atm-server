@@ -17,7 +17,7 @@ public class FileLoggingServiceImpl extends AbstractLogger implements LoggingSer
 		logger = Logger.getLogger("AtmLogger");
 		logger.setUseParentHandlers(false);
 		try {
-			fh = new FileHandler("C:/logger/atm.log");
+			fh = new FileHandler("logs/atm.log");
 			logger.addHandler(fh);
 			SimpleFormatter formatter = new SimpleFormatter();
 			fh.setFormatter(formatter);

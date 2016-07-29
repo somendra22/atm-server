@@ -28,4 +28,9 @@ public class BankBranch {
 		this.atmList = atmList;
 	}
 
+	@Override
+	public String toString() {
+		return this.name;
+	}
+
 }
