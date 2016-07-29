@@ -16,24 +16,22 @@ public class Atm {
 		return latitude;
 	}
 
-	public void setLatitude(int latitude) {
-		this.latitude = latitude;
-	}
-
 	public int getLongitude() {
 		return longitude;
-	}
-
-	public void setLongitude(int longitude) {
-		this.longitude = longitude;
 	}
 
 	public int getBalanceAmount() {
 		return balanceAmount;
 	}
-
-	public void setBalanceAmount(int balanceAmount) {
-		this.balanceAmount = balanceAmount;
+	
+	public void updateBalance(int amount)
+	{
+		this.balanceAmount = amount;
+		if(amount <= 0)
+		{
+			System.out.println("Notify bank, low balance in atm");
+		}
 	}
+
 
 }
